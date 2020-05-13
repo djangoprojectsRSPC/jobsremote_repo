@@ -1,0 +1,44 @@
+{%load staticfiles%}
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="{%static 'css/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1>Hydrabad Jobs Information</h1><hr>
+    <img src='{%static 'images/download (5).jpg'%}'>
+    <img src='{%static 'images/download (6).jpg'%}'>
+    <img src='{%static 'images/download (7).jpg'%}'>
+    <img src='{%static 'images/download (8).jpg'%}'>
+    {%if Hjobs_list%}
+    <table id='tab' border="1">
+      <thead>
+        <th>Date</th>
+        <th>Company</th>
+        <th>Title</th>
+        <th>Eligibility</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+      </thead>
+      {%for h in Hjobs_list%}
+
+        <tr>
+          <td>{{h.date}}</td>
+          <td>{{h.company}}</td>
+          <td>{{h.title}}</td>
+          <td>{{h.eligibility}}</td>
+          <td>{{h.address}}</td>
+          <td>{{h.email}}</td>
+          <td>{{h.phno}}</td>
+        </tr>
+      {%endfor%}
+    </table>
+
+    {%else%}
+      <h3>No Jobs Found in Hydrabad!!!</h3>
+    {%endif%}
+
+</body>
+</html>

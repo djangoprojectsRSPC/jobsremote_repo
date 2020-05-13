@@ -1,0 +1,43 @@
+{%load staticfiles%}
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="{%static 'css/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1>Banglore Jobs Information</h1><hr>
+    <img src='{%static 'images/download (9).jpg'%}'>
+    <img src='{%static 'images/download (10).jpg'%}'>
+    <img src='{%static 'images/download (11).jpg'%}'>
+    <img src='{%static 'images/download (12).jpg'%}'>
+    {%if Bjobs_list%}
+    <table id='tab' border="1">
+      <thead>
+        <th>Date</th>
+        <th>Company</th>
+        <th>Title</th>
+        <th>Eligibility</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+      </thead>
+      {%for b in Bjobs_list%}
+        <tr>
+          <td>{{b.date}}</td>
+          <td>{{b.company}}</td>
+          <td>{{b.title}}</td>
+          <td>{{b.eligibility}}</td>
+          <td>{{b.address}}</td>
+          <td>{{b.email}}</td>
+          <td>{{b.phno}}</td>
+        </tr>
+      {%endfor%}
+    </table>
+
+    {%else%}
+      <h3>No Jobs Found in Banglore!!!</h3>
+    {%endif%}
+
+</body>
+</html>

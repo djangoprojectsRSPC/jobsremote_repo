@@ -1,0 +1,43 @@
+{%load staticfiles%}
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="{%static 'css/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1>Chennai Jobs Information</h1><hr>
+    <img src='{%static 'images/download (13).jpg'%}'>
+    <img src='{%static 'images/download (14).jpg'%}'>
+    <img src='{%static 'images/download (15).jpg'%}'>
+    <img src='{%static 'images/download (16).jpg'%}'>
+    {%if Cjobs_list%}
+    <table id='tab' border="1">
+      <thead>
+        <th>Date</th>
+        <th>Company</th>
+        <th>Title</th>
+        <th>Eligibility</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+      </thead>
+      {%for c in Cjobs_list%}
+        <tr>
+          <td>{{c.date}}</td>
+          <td>{{c.company}}</td>
+          <td>{{c.title}}</td>
+          <td>{{c.eligibility}}</td>
+          <td>{{c.address}}</td>
+          <td>{{c.email}}</td>
+          <td>{{c.phno}}</td>
+        </tr>
+      {%endfor%}
+    </table>
+
+    {%else%}
+      <h3>No Jobs Found in Chennai!!!</h3>
+    {%endif%}
+
+</body>
+</html>

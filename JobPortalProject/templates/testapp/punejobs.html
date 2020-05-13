@@ -1,0 +1,43 @@
+{%load staticfiles%}
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="{%static 'css/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1>Pune Jobs Information</h1><hr>
+    <img src='{%static 'images/download (17).jpg'%}'>
+    <img src='{%static 'images/download (18).jpg'%}'>
+    <img src='{%static 'images/download (3).jpg'%}'>
+    <img src='{%static 'images/download (4).jpg'%}'>
+    {%if Pjobs_list%}
+    <table id='tab' border="1">
+      <thead>
+        <th>Date</th>
+        <th>Company</th>
+        <th>Title</th>
+        <th>Eligibility</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+      </thead>
+      {%for p in Pjobs_list%}
+        <tr>
+          <td>{{p.date}}</td>
+          <td>{{p.company}}</td>
+          <td>{{p.title}}</td>
+          <td>{{p.eligibility}}</td>
+          <td>{{p.address}}</td>
+          <td>{{p.email}}</td>
+          <td>{{p.phno}}</td>
+        </tr>
+      {%endfor%}
+    </table>
+
+    {%else%}
+      <h3>No Jobs Found in Pune!!!</h3>
+    {%endif%}
+
+</body>
+</html>
